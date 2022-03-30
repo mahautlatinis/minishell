@@ -12,4 +12,3 @@ Rewrite a simple shell using bash as reference.
 
 Special thanks to ttranche for helping me !
 
-![Alt text](/cub3d.png?raw=true "cub3D")
