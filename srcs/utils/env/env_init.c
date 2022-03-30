@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 12:19:38 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 18:00:53 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/30 19:01:13 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,9 @@ void	sub_push_env_var(char *key, char *value, t_env_elem *elem, t_mem *mem)
 void	push_env_var(char *key, char *value, t_mem *mem, bool append)
 {
 	t_env_elem	*elem;
-	t_env_elem	*temp;
 
 	(void)mem;
 	(void)append;
-	temp = NULL;
 	elem = (t_env_elem *)malloc(sizeof(t_env_elem));
 	if (!elem)
 		failure(EXIT_FAILURE, mem);
@@ -127,7 +125,7 @@ t_env_elem	*find_key_in_env(char *key, t_mem *mem)
 			if (ft_strcmp(tmp->key, key) == 0)
 				return (tmp);
 			tmp = tmp->next;
-		}	
+		}
 	}
 	return (tmp);
 }

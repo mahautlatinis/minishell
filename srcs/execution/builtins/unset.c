@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:47:15 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 11:12:33 by user42           ###   ########.fr       */
+/*   Updated: 2022/03/30 19:00:00 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,9 @@ int	remove_from_list(t_env_elem *elem, t_mem *mem)
  */
 int	ft_exec_unset(t_cmd_elem *elem, t_mem *mem)
 {
-	char		*key;
 	int			i;
 	t_env_elem	*tmp;
 
-	key = NULL;
 	i = 1;
 	if (elem->args_len >= 2)
 	{

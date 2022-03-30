@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 16:01:17 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 19:07:08 by malatini         ###   ########.fr       */
+/*   Updated: 2022/03/30 19:00:31 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,13 +113,9 @@ int	ft_check_export(t_cmd_elem *e, t_mem *m)
 */
 int	ft_exec_export(t_cmd_elem *cmds, t_mem *mem)
 {
-	char	*name;
 	int		ret;
-	char	*value;
 
 	(void)mem;
-	name = NULL;
-	value = NULL;
 	ret = 0;
 	if (cmds->args_len <= 1)
 		ft_export_no_arg(cmds, mem);

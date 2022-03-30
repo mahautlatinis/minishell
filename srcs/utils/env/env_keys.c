@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_keys.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 18:13:22 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 19:05:54 by malatini         ###   ########.fr       */
+/*   Updated: 2022/03/30 19:01:42 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,10 @@ char	*isolate_key_from_string(char *str, t_mem *mem)
 {
 	char	*key;
 	int		i;
-	int		j;
 
 	(void)mem;
 	key = NULL;
 	i = 0;
-	j = 0;
 	while (str[i] && str[i] != '=' && str[i] != '+')
 		i++;
 	if (!str[i])
