@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 21:40:50 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 15:06:53 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/03 23:24:00 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ void	s_init(t_mem *m)
 	g_sig_var.mem = m;
 }
 
-/**
-** Sig quit permet de controler les control backslash
-* @author: malatini
-*/
 void	s_quit(int signal)
 {
 	(void)signal;
@@ -58,7 +54,6 @@ void	s_int(int code)
 	else
 	{
 		ft_putstr_fd("\n", 2);
-		// rl_replace_line("", 0);
 		if (g_sig_var.pid == -1)
 			rl_on_new_line();
 		rl_redisplay();
