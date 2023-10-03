@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   last_return1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 16:34:01 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 15:53:00 by user42           ###   ########.fr       */
+/*   Updated: 2023/10/03 23:23:39 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Outils de debug, remettre les printf
-* @author: malatini
-*/
 void	print_ret_list(t_mem *mem)
 {
 	t_ret_elem	*elem;
@@ -27,13 +23,9 @@ void	print_ret_list(t_mem *mem)
 	}
 }
 
-/**
-** Renvoie le dernier retour
-* @author: malatini
-*/
 int	return_last_ret(t_mem *mem)
 {
-	 t_ret_elem	*elem;
+	t_ret_elem	*elem;
 
 	elem = mem->ret_list->first;
 	if (!elem)
@@ -45,10 +37,6 @@ int	return_last_ret(t_mem *mem)
 	return (0);
 }
 
-/**
-** Ajoute un element a la liste de retours
-* @author: malatini
-*/
 void	push_ret_elem(t_mem *mem, int ret_value)
 {
 	t_ret_elem	*elem;
