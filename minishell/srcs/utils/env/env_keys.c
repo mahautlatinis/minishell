@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 18:13:22 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:44:33 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:57:29 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	*isolate_key_from_string(char *str, t_mem *mem)
 	char	*key;
 	int		i;
 
-	(void)mem;
 	key = NULL;
 	i = 0;
 	while (str[i] && str[i] != '=' && str[i] != '+')
@@ -70,7 +69,6 @@ char	*isolate_value_from_string(char *str, t_mem *mem)
 
 	i = 0;
 	value = NULL;
-	(void)mem;
 	while (str[i] && str[i] != '=')
 		i++;
 	if (str[i])

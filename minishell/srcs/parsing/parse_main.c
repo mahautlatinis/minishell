@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 17:25:30 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:39:02 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:54:18 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	parse_line(t_mem *m)
 		}
 	}
 	end_arg(m->buffer, p.e, m, &p.r_type);
-	if (check_parsing_end_conditions(p.e, m, &ret) < 0)
+	if (check_parsing_end_conditions(m, &ret) < 0)
 		return (ret);
 	return (syntax_error(m));
 }

@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 12:19:38 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:44:01 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:56:13 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,10 @@ void	sub_push_env_var(char *key, char *value, t_env_elem *elem, t_mem *mem)
 	return ;
 }
 
-void	push_env_var(char *key, char *value, t_mem *mem, bool append)
+void	push_env_var(char *key, char *value, t_mem *mem)
 {
 	t_env_elem	*elem;
 
-	(void)mem;
-	(void)append;
 	elem = (t_env_elem *)malloc(sizeof(t_env_elem));
 	if (!elem)
 		failure(EXIT_FAILURE, mem);
@@ -92,7 +90,7 @@ void	sub_add_env_var(char *str, t_env_var *v, t_mem *mem, bool append)
 	}
 	v->value[v->k] = '\0';
 	mem->temp = mem->env_list;
-	push_env_var(v->key, v->value, mem, append);
+	push_env_var(v->key, v->value, mem);
 	return ;
 }
 

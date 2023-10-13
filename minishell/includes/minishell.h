@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 12:21:58 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 16:21:24 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:56:28 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,7 @@ typedef struct s_sig
 
 bool			check_append(char *str);
 bool			check_export_key(t_cmd_elem *elem, t_mem *mem);
+bool			check_key(char *str, t_mem *mem);
 bool			found_char(char *str, char c);
 bool			ft_isalnum(int c);
 bool			ft_isdigit(int c);
@@ -222,14 +223,14 @@ char			*ft_strdup(const char *s1, t_mem *mem);
 char			*ft_strndup(t_mem *mem, char *str, int i);
 char			*isolate_key_from_string(char *str, t_mem *mem);
 char			*isolate_value_from_string(char *str, t_mem *mem);
-char			*loop_in_paths(t_cmd_elem *e, char **sp, t_mem *m, char *bin);
+char			*loop_in_paths(t_cmd_elem *e, char **sp, char *bin);
 char			*read_quoted(t_mem *mem, int *pos, t_parse *p);
 char			*sub_isolate(char *str, char *value, int i);
 int				add_key_no_value(char *str, t_mem *mem);
 int				append_env_var(char *v, char *old, t_mem *m, t_env_elem *e);
 int				check_cmd(t_cmd *cmd);
 int				check_file(t_mem *mem);
-int				check_parsing_end_conditions(t_cmd_elem *e, t_mem *m, int *r);
+int				check_parsing_end_conditions(t_mem *m, int *r);
 int				check_path_set(t_mem *mem);
 int				close_all_fds(t_mem *mem);
 int				d_err_p_ret(char *error, t_mem *mem, int ret, int fd);
@@ -249,8 +250,8 @@ int				ft_exec_export(t_cmd_elem *cmds, t_mem *mem);
 int				ft_exec_pwd(t_mem *mem);
 int				ft_exec_unset(t_cmd_elem *elem, t_mem *m);
 int				ft_execution(t_mem *mem);
-int				ft_export_no_arg(t_cmd_elem *cmds, t_mem *mem);
-int				ft_heredoc(t_file_elem *f, t_cmd_elem *e, t_mem *m);
+int				ft_export_no_arg(t_mem *mem);
+int				ft_heredoc(t_file_elem *f, t_mem *m);
 int				ft_isalpha(int c);
 int				ft_read(char **envp, bool env_set);
 int				ft_redirection(t_cmd_elem *elem, t_mem *mem);
@@ -306,15 +307,15 @@ void			init_env_var(t_env_var *v);
 void			loop_heredoc(char *l, t_mem *m, t_file_elem *f, int *h);
 void			loop_through_env_var(t_mem *mem);
 void			print_tab_env(t_env_list *env);
-void			push_env_var(char *key, char *value, t_mem *mem, bool append);
+void			push_env_var(char *key, char *value, t_mem *mem);
 void			push_file_elem(t_cmd_elem *e, char **buff, bool q, enum e_r t);
 void			push_ret_elem(t_mem *mem, int ret_value);
 void			quote_expand(t_mem *m, int *pos);
 void			s_init(t_mem *m);
 void			s_int(int code);
-void			s_quit(int code);
 void			s_quit_hd(int signal);
-void			set_exp(t_cmd_elem *el, t_mem *m);
+void			s_quit(int code);
+void			set_exp(t_mem *m);
 void			set_value_in_env(char *key, char *value, t_mem *mem);
 void			setup_file_dup(t_cmd_elem *elem);
 void			sub_add_env_var(char *str, t_env_var *v, t_mem *mem, bool ap);

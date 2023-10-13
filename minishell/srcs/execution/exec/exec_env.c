@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 16:35:35 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:35:07 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:50:47 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ char	*flatten_env_var(t_env_elem *e, t_mem *mem)
 	int		total_len;
 
 	ret = NULL;
-	(void)mem;
 	total_len = ft_strlen(e->key) + 1 + ft_strlen(e->value) + 1;
 	ret = (char *)malloc(sizeof(char *) * total_len);
 	if (!ret)

@@ -6,20 +6,19 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 17:01:41 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 16:13:23 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:52:37 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-char	*loop_in_paths(t_cmd_elem *elem, char **splitted, t_mem *mem, char *bin)
+char	*loop_in_paths(t_cmd_elem *elem, char **splitted, char *bin)
 {
 	int				i;
 	int				fd;
 	struct stat		s;
 
 	i = 0;
-	(void)mem;
 	while (splitted && splitted[i])
 	{
 		bin = (char *)ft_calloc(sizeof(char), (ft_strlen(splitted[i])
@@ -54,21 +53,10 @@ char	*find_absolute_path(t_cmd_elem *elem, t_mem *mem)
 		return (bin);
 	}
 	splitted_paths = ft_split(env_paths, ':');
-	bin = loop_in_paths(elem, splitted_paths, mem, bin);
+	bin = loop_in_paths(elem, splitted_paths, bin);
 	free(env_paths);
 	free_tab(splitted_paths);
 	return (bin);
-}
-
-int	sub_exec_cmds_old(t_cmd_elem *elem, t_mem *mem, char *path)
-{
-	(void)mem;
-	(void)path;
-	if (is_builtin(elem->args[0]))
-		elem->is_builtin = true;
-	else
-		elem->is_builtin = false;
-	return (0);
 }
 
 char	*find_exec(t_cmd_elem *elem, t_mem *mem)

@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 16:06:30 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:36:29 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:53:14 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	redir_input_simple(t_cmd_elem *elem, t_mem *mem)
 		}
 		else if (f->redir_type == RR_INPUT)
 		{
-			if (ft_heredoc(f, elem, mem))
+			if (ft_heredoc(f, mem))
 				return (1);
 		}
 		f = f->next;

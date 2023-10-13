@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 21:43:48 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:54:59 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:52:58 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,12 @@ void	loop_heredoc(char *line, t_mem *mem, t_file_elem *f, int *heredoc_pipe)
 	}
 }
 
-int	ft_heredoc(t_file_elem *f, t_cmd_elem *elem, t_mem *mem)
+int	ft_heredoc(t_file_elem *f, t_mem *mem)
 {
 	int		pid;
 	int		heredoc_pipe[2];
 	char	*line;
 
-	(void)elem;
 	line = NULL;
 	pipe(heredoc_pipe);
 	signal(SIGQUIT, &s_quit_hd);

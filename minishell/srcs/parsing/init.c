@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 19:38:28 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 16:26:30 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:53:52 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ t_cmd_elem	*init_cmd_elem(t_cmd *cmd, t_mem *mem)
 {
 	t_cmd_elem	*elem;
 
-	(void)cmd;
 	elem = (t_cmd_elem *)malloc(sizeof(t_cmd_elem));
 	if (!elem)
 		failure(-1, mem);

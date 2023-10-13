@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 19:43:51 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:39:35 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:54:44 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,8 @@ char	**add_str_to_tab(t_cmd_elem *elem, char *buffer, t_mem *mem)
 	return (new);
 }
 
-void	reinitialize_buffer(char **buffer, t_mem *mem)
+void	reinitialize_buffer(char **buffer)
 {
-	(void)mem;
 	*buffer = NULL;
 	return ;
 }
@@ -114,7 +113,7 @@ void	end_arg(char **buffer, t_cmd_elem *elem, t_mem *mem, enum e_r *type)
 		elem->args_len++;
 	}
 	mem->quotes = false;
-	reinitialize_buffer(buffer, mem);
+	reinitialize_buffer(buffer);
 	*type = R_NONE;
 	return ;
 }

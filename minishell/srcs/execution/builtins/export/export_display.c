@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   export_utils1.c                                    :+:      :+:    :+:   */
+/*   export_display.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:12:44 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:31:26 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:47:23 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,11 @@ void	ft_print_tab_env_export(t_env_list *env)
 	return ;
 }
 
-int	ft_export_no_arg(t_cmd_elem *cmds, t_mem *mem)
+int	ft_export_no_arg(t_mem *mem)
 {
 	int			ret;
 	t_env_list	*cpy;
 
-	(void)cmds;
-	(void)mem;
 	ret = 0;
 	cpy = cpy_env_list(mem);
 	if (!cpy)

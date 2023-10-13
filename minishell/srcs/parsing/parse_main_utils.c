@@ -6,15 +6,14 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 17:55:44 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:38:39 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:54:04 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-int	check_parsing_end_conditions(t_cmd_elem *elem, t_mem *mem, int *ret)
+int	check_parsing_end_conditions(t_mem *mem, int *ret)
 {
-	(void)elem;
 	*ret = 1;
 	if (check_cmd(mem->cmd) == -1)
 	{

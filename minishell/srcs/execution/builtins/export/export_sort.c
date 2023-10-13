@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   export_utils.c                                     :+:      :+:    :+:   */
+/*   export_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:11:33 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:31:06 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:55:59 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
+
+bool	check_export_key(t_cmd_elem *elem, t_mem *mem)
+{
+	int	i;
+
+	i = 1;
+	while (elem->args[i])
+	{
+		if (!check_key(elem->args[i], mem))
+			return (false);
+		i++;
+	}
+	return (true);
+}
 
 int	len_env_list(t_mem *mem)
 {
@@ -45,7 +59,7 @@ t_env_list	*cpy_env_list(t_mem *m)
 		{
 			m->no_display_temp = t->display;
 			push_env_var(ft_strdup(t->key, m),
-				ft_strdup(t->value, m), m, false);
+				ft_strdup(t->value, m), m);
 			t = t->next;
 		}
 	}

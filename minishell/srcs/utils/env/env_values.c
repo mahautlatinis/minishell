@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:08:43 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:45:08 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:56:44 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,9 @@ bool	replace_value_in_env(char *key, char *value, t_mem *mem)
 void	set_value_in_env(char *key, char *value, t_mem *mem)
 {
 	bool		did_replace;
-	bool		append;
 	bool		display_option;
 	t_env_elem	*elem;
 
-	append = false;
 	display_option = true;
 	elem = find_key_in_env(key, mem);
 	if (!elem)
@@ -93,7 +91,7 @@ void	set_value_in_env(char *key, char *value, t_mem *mem)
 	mem->no_display_temp = display_option;
 	mem->temp = mem->env_list;
 	if (!did_replace)
-		push_env_var(key, value, mem, append);
+		push_env_var(key, value, mem);
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:46:40 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:28:18 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:45:57 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,11 @@ int	execute_cd_args(t_cmd_elem *elem, t_mem *mem, char *current_path)
 	return (ret);
 }
 
-int	execute_cd_no_arg(t_cmd_elem *elem, t_mem *mem)
+int	execute_cd_no_arg(t_mem *mem)
 {
 	char	*home;
 	char	*current_wd;
 
-	(void)elem;
 	home = find_value_in_env("HOME", mem);
 	current_wd = getcwd(NULL, 0);
 	chdir(home);
@@ -96,7 +95,7 @@ int	ft_exec_cd(t_cmd_elem *elem, t_mem *mem)
 	i = 0;
 	current_path = getcwd(NULL, 0);
 	if (elem->args_len == 1)
-		i = execute_cd_no_arg(elem, mem);
+		i = execute_cd_no_arg(mem);
 	else
 		i = execute_cd_args(elem, mem, current_path);
 	free(current_path);

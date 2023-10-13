@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 18:57:56 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:40:15 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:54:56 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ char	*copy_in_buffer(char *old_buf, char c, t_mem *mem)
 	char	*new;
 	int		i;
 
-	(void)mem;
 	i = 0;
 	new = NULL;
 	len = ft_strlen(old_buf) + 1;

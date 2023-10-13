@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   last_return1.c                                     :+:      :+:    :+:   */
+/*   return_codes_list.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 16:34:01 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 16:03:23 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:55:14 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	push_ret_elem(t_mem *mem, int ret_value)
 	t_ret_elem	*tmp;
 
 	tmp = NULL;
-	(void)mem;
 	elem = (t_ret_elem *)malloc(sizeof(t_ret_elem));
 	if (!(elem))
 		failure(EXIT_FAILURE, mem);

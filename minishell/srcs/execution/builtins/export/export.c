@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 16:01:17 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:32:35 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:50:11 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_export(t_cmd_elem *el, t_mem *m)
 	t_export	exp;
 
 	m->exp = &exp;
-	set_exp(el, m);
+	set_exp(m);
 	if (!check_export_key(el, m))
 		return (1);
 	while (el->args[exp.i])
@@ -100,10 +100,9 @@ int	ft_exec_export(t_cmd_elem *cmds, t_mem *mem)
 {
 	int		ret;
 
-	(void)mem;
 	ret = 0;
 	if (cmds->args_len <= 1)
-		ft_export_no_arg(cmds, mem);
+		ft_export_no_arg(mem);
 	else
 		ft_check_export(cmds, mem);
 	return (ret);
