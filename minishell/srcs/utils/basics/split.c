@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 17:32:14 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/24 14:37:29 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:41:51 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static void	ft_copy_word(char *dest, const char *from, char c)
 		i++;
 	}
 	dest[i] = '\0';
+	return ;
 }
 
 static void	ft_transfert(char **tab, const char *str, char c)
@@ -75,6 +76,7 @@ static void	ft_transfert(char **tab, const char *str, char c)
 		}
 	}
 	tab[word] = NULL;
+	return ;
 }
 
 char	**ft_split(char const *str, char c)

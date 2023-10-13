@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:46:58 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 11:11:40 by user42           ###   ########.fr       */
+/*   Updated: 2023/10/13 15:32:40 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Il nous a ete recommande d utiliser getcwd.
-** Car pwd doit marcher meme si l env a ete unset
-* @author: malatini
-*/
 int	ft_exec_pwd(t_mem *mem)
 {
 	char	*path;

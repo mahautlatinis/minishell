@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   export_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:14:31 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 20:49:12 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:31:35 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Va permettre de realiser l'expansion (remplace les keys par les values)
-** Utilisee dans le heredoc et fonction similaire parsing
-* @author: malatini
-*/
 char	*expand_line(char *line, t_mem *m, int i, char *temp)
 {
 	char	*buffer;

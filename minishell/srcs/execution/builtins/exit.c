@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:47:44 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 14:47:54 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:30:43 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,6 @@ int	ft_atoi(const char *str, bool *big)
 	return (sub_ft_atoi(str, big, i, sign));
 }
 
-/**
-** Permet de savoir si la chaine est entierement constituee de digit
-* @author: malatini
-*/
 bool	str_is_all_digit(char *str)
 {
 	int	i;
@@ -78,11 +74,6 @@ bool	str_is_all_digit(char *str)
 	return (true);
 }
 
-/**
-** Fonction de free et d'exit en cas de probleme
-** Meme si il y a un exit s'il y a un pipe il faut en quelque sorte l'ignorer
-* @author: malatini
-*/
 int	exit_clean(t_cmd_elem *elem, int ret, t_mem *mem)
 {
 	int	atoi;
@@ -104,10 +95,6 @@ int	exit_clean(t_cmd_elem *elem, int ret, t_mem *mem)
 	return (1);
 }
 
-/**
-** Fonction principale pour la gestion du builtin exit
-* @author: malatini
-*/
 int	ft_exec_exit(t_cmd_elem *e, t_mem *m)
 {
 	int		ret;

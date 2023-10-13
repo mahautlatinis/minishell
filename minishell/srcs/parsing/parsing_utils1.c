@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 19:35:35 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 19:01:40 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:40:41 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
- ** Va faire une copie de toute la key d'expansion
- *** @author: malatini
- */
 char	*cpy_key(t_mem *m, int j)
 {
 	char	*new;
@@ -45,10 +41,6 @@ char	*cpy_key(t_mem *m, int j)
 	return (new);
 }
 
-/**
- ** Permet d'ajouter un element a la liste des fichiers
- *** @author: malatini
-*/
 void	push_file_elem(t_cmd_elem *e, char **buf, bool quotes, enum e_r type)
 {
 	t_file_elem	*f;
@@ -71,12 +63,9 @@ void	push_file_elem(t_cmd_elem *e, char **buf, bool quotes, enum e_r type)
 			tmp = tmp->next;
 		tmp->next = f;
 	}
+	return ;
 }
 
-/**
-** Va permettre de noter facilement de quelle redirection il s'agit
-*** @author: malatini
-*/
 int	set_redir_type(char *l, int i, t_cmd_elem *e, t_mem *mem)
 {
 	if (l[i] == '>' && l[i + 1] != '>' && !is_sep(l[i + 1]) && l[i + 1])
@@ -96,11 +85,6 @@ int	set_redir_type(char *l, int i, t_cmd_elem *e, t_mem *mem)
 	return (e->redir_type);
 }
 
-/**
- * * Une fois le parsing fait, fait le tour des commandes
- ** et verifie qu'aucune n'a d'arguments vides
- *** @author: malatini
-*/
 int	check_cmd(t_cmd *cmd)
 {
 	t_cmd_elem	*elem;
@@ -148,4 +132,5 @@ void	expansion_split(t_mem *m, int *i, t_cmd_elem *elem, enum e_r *t)
 		free(value);
 	if (key)
 		free(key);
+	return ;
 }

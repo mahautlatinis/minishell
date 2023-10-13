@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 21:43:48 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 20:48:07 by user42           ###   ########.fr       */
+/*   Updated: 2023/10/13 15:36:23 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	loop_heredoc(char *line, t_mem *mem, t_file_elem *f, int *heredoc_pipe)
 		write(heredoc_pipe[1], "\n", 1);
 		free(line);
 	}
+	return ;
 }
 
 int	ft_heredoc(t_file_elem *f, t_cmd_elem *elem, t_mem *mem)

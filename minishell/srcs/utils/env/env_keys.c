@@ -6,23 +6,11 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 18:13:22 by malatini          #+#    #+#             */
-/*   Updated: 2022/03/30 19:01:42 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 15:44:33 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
-
-/**
-* ! Deprecated
-* @author: malatini
-*/
-void	invalid_name_message(char *key)
-{
-	ft_putstr_fd("export: not a valid identifier", 2);
-	ft_putstr_fd(": ", 2);
-	ft_putstr_fd(key, 2);
-	ft_putstr_fd("\n", 2);
-}
 
 char	*ft_strndup(t_mem *mem, char *str, int i)
 {
@@ -43,11 +31,6 @@ char	*ft_strndup(t_mem *mem, char *str, int i)
 	return (new);
 }
 
-/**
-** Permet de récupérer la clé quand on a une chaine key=valeur
-** revoir si il n y a pas une fonction autorisee qui permet ca
-* @author: malatini
-*/
 char	*isolate_key_from_string(char *str, t_mem *mem)
 {
 	char	*key;
@@ -64,11 +47,6 @@ char	*isolate_key_from_string(char *str, t_mem *mem)
 	return (key);
 }
 
-/**
- * ! Deprecated
-** Semblable a un strndup mais le malloc a ete fait avant
-* @author: malatini
-*/
 char	*sub_isolate(char *str, char *value, int i)
 {
 	int	k;
@@ -84,10 +62,6 @@ char	*sub_isolate(char *str, char *value, int i)
 	return (value);
 }
 
-/**
-** Dans la chaine key=value, isole la key
-* @author: malatini
-*/
 char	*isolate_value_from_string(char *str, t_mem *mem)
 {
 	char	*value;

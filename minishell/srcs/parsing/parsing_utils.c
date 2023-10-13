@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 18:57:56 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 20:38:54 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:40:15 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ bool	spe_case(char c)
 	return (false);
 }
 
-/**
-** Copie le char lu dans le buffer, realloue un buffer de taille superieure
-** le fera jusqu'a ce que le buffer constitue un arg entier *
-*** @author malatini
-*/
 char	*copy_in_buffer(char *old_buf, char c, t_mem *mem)
 {
 	int		len;
@@ -57,11 +52,6 @@ char	*copy_in_buffer(char *old_buf, char c, t_mem *mem)
 	return (new);
 }
 
-/**
- * ! Deprecated
- ** Ajoute un chaine de chars au buffer
- * @author: malatini
- */
 char	*copy_str_in_buf(char *old_buf, char *s1, t_mem *mem)
 {
 	int		len;
@@ -103,4 +93,5 @@ void	quote_expand(t_mem *m, int *pos)
 	*pos += ft_strlen(key) + 1;
 	free(value);
 	free(key);
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 16:34:01 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/03 23:23:39 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 15:47:25 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ void	print_ret_list(t_mem *mem)
 
 	elem = mem->ret_list->first;
 	while (elem)
-	{
 		elem = elem->next;
-	}
+	return ;
 }
 
 int	return_last_ret(t_mem *mem)
@@ -58,4 +57,5 @@ void	push_ret_elem(t_mem *mem, int ret_value)
 			tmp = tmp->next;
 		tmp->next = elem;
 	}
+	return ;
 }

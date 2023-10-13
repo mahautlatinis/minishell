@@ -12,9 +12,6 @@
 
 #include <minishell.h>
 
-/**
-*** @author: malatini
-*/
 int	increment_shell_level(t_env_elem *elem, t_mem *mem)
 {
 	int		new_value;
@@ -35,11 +32,6 @@ int	increment_shell_level(t_env_elem *elem, t_mem *mem)
 	return (ret);
 }
 
-/**
-** Va louper dans les variables d environnement jusqu a trouver
-** le shell level pour l incrementer
-*** @author: malatini
-*/
 int	loop_for_shell_level(t_mem *mem)
 {
 	t_env_elem	*elem;

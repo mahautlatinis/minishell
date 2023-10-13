@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basics1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 14:56:06 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/24 14:57:05 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:41:20 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_bzero(void *s, size_t n)
 			i++;
 		}
 	}
+	return ;
 }
 
 void	*ft_calloc(size_t count, size_t size)

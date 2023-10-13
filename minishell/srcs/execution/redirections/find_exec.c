@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   find_exec.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 17:01:41 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 18:21:16 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:36:07 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Permet de "recréer" le path pour ensuite tester si on
-** a trouvé l'executable.
-* @author: malatini
-*/
 char	*find_bin(t_mem *mem, char **colons_paths, char *bin, t_cmd_elem *elem)
 {
 	int			fd;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   export_utils4.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 14:42:05 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 19:38:12 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:32:05 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,6 @@ bool	check_key(char *str, t_mem *mem)
 	return (true);
 }
 
-/**
-** Verifie si la cle a exporter est nommee correctement
-*/
 bool	check_export_key(t_cmd_elem *elem, t_mem *mem)
 {
 	int	i;

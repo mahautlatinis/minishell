@@ -6,16 +6,12 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 12:19:38 by malatini          #+#    #+#             */
-/*   Updated: 2022/03/30 19:01:13 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 15:44:01 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
- * * Init pour eviter les garbages values
- *** @author: malatini
-*/
 void	init_env_var(t_env_var *v)
 {
 	v->i = 0;
@@ -23,6 +19,7 @@ void	init_env_var(t_env_var *v)
 	v->j = 0;
 	v->value = NULL;
 	v->k = 0;
+	return ;
 }
 
 void	sub_push_env_var(char *key, char *value, t_env_elem *elem, t_mem *mem)
@@ -50,12 +47,9 @@ void	sub_push_env_var(char *key, char *value, t_env_elem *elem, t_mem *mem)
 		free(key);
 	if (value)
 		free(value);
+	return ;
 }
 
-/**
-** Push l'env var dans la liste chainee
-*** @author: malatini
-*/
 void	push_env_var(char *key, char *value, t_mem *mem, bool append)
 {
 	t_env_elem	*elem;
@@ -75,12 +69,9 @@ void	push_env_var(char *key, char *value, t_mem *mem, bool append)
 		elem->value = NULL;
 	elem->display = mem->no_display_temp;
 	sub_push_env_var(key, value, elem, mem);
+	return ;
 }
 
-/**
-** Sous fonction sur la norme
-*** @author: malatini
-*/
 void	sub_add_env_var(char *str, t_env_var *v, t_mem *mem, bool append)
 {
 	v->key[v->j] = '\0';
@@ -102,13 +93,9 @@ void	sub_add_env_var(char *str, t_env_var *v, t_mem *mem, bool append)
 	v->value[v->k] = '\0';
 	mem->temp = mem->env_list;
 	push_env_var(v->key, v->value, mem, append);
+	return ;
 }
 
-/**
-** Via la key, cherche l'env elem dans la liste chainee
-** Permettant de retourner la value
-*** @author: malatini
-*/
 t_env_elem	*find_key_in_env(char *key, t_mem *mem)
 {
 	t_env_elem	*tmp;

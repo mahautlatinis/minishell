@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   export_utils3.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:57:48 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 17:58:55 by user42           ###   ########.fr       */
+/*   Updated: 2023/10/13 15:31:56 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Va permettre d'append une value et pas de l'ecraser (si += est trouve)
-* @author: malatini
-*/
 int	append_env_var(char *v, char *old_value, t_mem *m, t_env_elem *e)
 {
 	int		total_len;
@@ -45,11 +41,6 @@ int	append_env_var(char *v, char *old_value, t_mem *m, t_env_elem *e)
 	return (0);
 }
 
-/**
-** Permet d'ajouter a la liste chainee d env un element avec une cle sans valeur
-** qui sera affichee par export et pas par env
-* @author: malatini
-*/
 int	add_key_no_value(char *str, t_mem *mem)
 {
 	int			ret;
@@ -78,10 +69,6 @@ int	add_key_no_value(char *str, t_mem *mem)
 	return (ret);
 }
 
-/**
-** Initialiser la structure necessaire pour la norme
-* @author: malatini
-*/
 void	set_exp(t_cmd_elem *el, t_mem *m)
 {
 	(void)el;
@@ -90,4 +77,5 @@ void	set_exp(t_cmd_elem *el, t_mem *m)
 	m->exp->append = NULL;
 	m->exp->key = NULL;
 	m->exp->env_elem = NULL;
+	return ;
 }

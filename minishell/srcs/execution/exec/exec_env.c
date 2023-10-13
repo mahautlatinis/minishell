@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 16:35:35 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 11:16:36 by user42           ###   ########.fr       */
+/*   Updated: 2023/10/13 15:35:07 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t size)
 	return (dest);
 }
 
-/**
-** Utils pour permettre de recreer un char **env
-* @author: malatini
-*/
 char	*flatten_env_var(t_env_elem *e, t_mem *mem)
 {
 	char	*ret;
@@ -50,10 +46,6 @@ char	*flatten_env_var(t_env_elem *e, t_mem *mem)
 	return (ret);
 }
 
-/**
-** Retourne la longueur de la liste chainee de variable d'env 
-* @author: malatini
-*/
 int	list_env_len(t_env_list *env)
 {
 	t_env_elem	*elem;
@@ -69,10 +61,6 @@ int	list_env_len(t_env_list *env)
 	return (i);
 }
 
-/**
-** Fonction necessaire pour le execve qui a besoin d'un char **env
-* @author: malatini
-*/
 char	**ft_env_string_tab(t_env_list *env, t_mem *mem)
 {
 	int			i;

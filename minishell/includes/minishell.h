@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 12:21:58 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 18:27:12 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:46:50 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -242,14 +242,12 @@ t_cmd_elem		*push_cmd(t_cmd *cmd, t_mem *mem);
 void			reinitializfe_buffer(char **buffer, t_mem *mem);
 char			**add_str_to_tab(t_cmd_elem *elem, char *buffer, t_mem *mem);
 char			*read_quoted(t_mem *mem, int *pos, t_parse *p);
-void			display_cmds(t_cmd *cmd);
 int				check_cmd(t_cmd *cmd);
 char			*cpy_key(t_mem *mem, int j);
 char			*copy_in_buffer(char *old_buf, char c, t_mem *mem);
 char			*copy_str_in_buf(char *old_buf, char *s1, t_mem *mem);
 void			push_file_elem(t_cmd_elem *e, char **buff, bool q, enum e_r t);
 int				set_redir_type(char *line, int i, t_cmd_elem *elem, t_mem *mem);
-void			print_cmd(t_cmd_elem *elem);
 int				ft_read(char **envp, bool env_set);
 t_mem			*init_vars(char **envp);
 int				main(int argc, char **argv, char **env);
@@ -281,13 +279,11 @@ t_env_list		*cpy_env_list(t_mem *mem);
 bool			is_correct_key(char *key);
 bool			found_char(char *str, char c);
 int				ft_redirection(t_cmd_elem *elem, t_mem *mem);
-void			print_args(t_cmd_elem *elem);
 int				list_env_len(t_env_list *env);
 char			**ft_env_string_tab(t_env_list *env, t_mem *mem);
 void			*ft_memcpy(void *dest, const void *src, size_t size);
 char			*flatten_env_var(t_env_elem *env, t_mem *mem);
 void			*ft_memcpy(void *dest, const void *src, size_t size);
-int				print_env(t_mem *mem);
 int				close_all_fds(t_mem *mem);
 int				ft_close_pipes(t_mem *mem);
 void			s_init(t_mem *m);
@@ -304,7 +300,6 @@ int				ft_heredoc(t_file_elem *f, t_cmd_elem *elem, t_mem *mem);
 int				append_env_var(char *v, char *old, t_mem *m, t_env_elem *e);
 int				check_key_syntax(char *key, t_cmd_elem *elem, t_mem *mem);
 int				add_key_no_value(char *str, t_mem *mem);
-void			loop_for_last_return(t_mem *mem);
 t_ret_list		*init_ret_list(t_mem *mem);
 void			free_ret_list(t_mem *mem);
 void			push_ret_elem(t_mem *mem, int ret_value);
@@ -319,7 +314,6 @@ int				check_file(t_mem *mem);
 int				check_parsing_end_conditions(t_cmd_elem *e, t_mem *m, int *r);
 int				handle_pipe(t_mem *m, t_parse *p);
 int				handle_redir(t_mem *m, t_parse *p);
-int				handle_expansion(t_mem *m, int *i);
 void			rl_replace_line(const char *line, int r);
 int				d2_err_p_ret(char *error, char *arg, t_mem *mem, int ret);
 int				d3_err(char *error, char *arg, t_mem *mem, int ret);

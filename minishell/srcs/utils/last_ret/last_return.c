@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   last_return.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 16:23:51 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 15:10:02 by user42           ###   ########.fr       */
+/*   Updated: 2023/10/13 15:47:09 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,44 +40,9 @@ void	replace_with_last_return(char **str, t_mem *mem)
 		*str = NULL;
 		*str = ft_itoa(last_ret, mem);
 	}
+	return ;
 }
 
-/**
-* ! Deprecated ?
-* @author: malatini
-*/
-void	loop_for_last_return(t_mem *mem)
-{
-	t_cmd_elem	*elem;
-	t_file_elem	*file_elem;
-	int			i;
-
-	elem = mem->cmd->first;
-	while (elem)
-	{
-		i = 0;
-		if (elem->args)
-		{
-			while (elem->args[i])
-				replace_with_last_return(&elem->args[i++], mem);
-		}
-		if (elem->file->first)
-		{
-			file_elem = elem->file->first;
-			while (file_elem)
-			{
-				replace_with_last_return(&file_elem->path, mem);
-				file_elem = file_elem->next;
-			}
-		}
-		elem = elem->next;
-	}
-}
-
-/**
-** Free la liste chainee de retours
-* @author: malatini
-*/
 void	free_ret_list(t_mem *mem)
 {
 	t_ret_elem	*ret_elem;
@@ -100,12 +65,9 @@ void	free_ret_list(t_mem *mem)
 		free(mem->ret_list);
 		mem->ret_list = NULL;
 	}
+	return ;
 }
 
-/**
-** Fonction principale qui permet de gerer le $?
-* @author: malatini
-*/
 t_ret_list	*init_ret_list(t_mem *mem)
 {
 	t_ret_list	*ret_list;

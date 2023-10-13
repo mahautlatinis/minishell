@@ -3,34 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 21:19:10 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/29 22:58:03 by user42           ###   ########.fr       */
+/*   Updated: 2023/10/13 15:37:24 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Variable globale necessaire pour les signaux
-*/
 t_sig	g_sig_var;
 
-/**
-** Permet de gerer l'historique et les tabs sans passer par les termcaps.
-* @author: malatini
-*/
 void	ft_add_history(char *line)
 {
 	if (line && *line)
 		add_history(line);
+	return ;
 }
 
-/**
-** Sous function pour la norme, va looper pour lire les lignes de commandes
-* @author: malatini
-*/
 bool	loop_readline(char *line, t_mem *mem, char *buffer, t_cmd *cmd)
 {
 	while (true)
@@ -60,10 +50,6 @@ bool	loop_readline(char *line, t_mem *mem, char *buffer, t_cmd *cmd)
 	return (true);
 }
 
-/**
-** Fonction de lecture + initialisation des structures
-* @author: malatini
-*/
 int	ft_read(char **envp, bool env_set)
 {
 	char	*line;
@@ -82,10 +68,6 @@ int	ft_read(char **envp, bool env_set)
 	return (loop_readline(line, mem, buffer, cmd));
 }
 
-/**
- ** Main
- * @author: malatini
- */
 int	main(int argc, char **argv, char **env)
 {
 	bool	env_set;
@@ -101,17 +83,13 @@ int	main(int argc, char **argv, char **env)
 		signal(SIGQUIT, &s_quit);
 		ft_read(env, env_set);
 	}
-	exit (EXIT_SUCCESS);
+	exit(EXIT_SUCCESS);
 }
 
-/**
- ** Fonction de free + exit en cas d'erreurs appel systeme (malloc)
- * @author: malatini
- */
 void	failure(int error, t_mem *mem)
 {
 	free_mem_no_exit(mem);
 	free_mem(mem);
 	ft_putstr_fd(SYS_MALLOC, 2);
-	exit (error);
+	exit(error);
 }

@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 19:38:28 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 17:07:04 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:37:48 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
- * * Initialisation  de la structure principale qui va contenir
- ** tout ce qui aura ete malloque
- * @author: malatini
-*/
 t_mem	*init_mem(char **envp, bool env_set)
 {
 	t_mem	*mem;
@@ -43,12 +38,9 @@ void	define_mem(t_mem *mem, t_cmd *cmd, char *line, char **buffer)
 	mem->cmd = cmd;
 	mem->buffer = buffer;
 	mem->line = line;
+	return ;
 }
 
-/**
-** Initialise la liste chainee de commandes *
-*** @author malatini
-*/
 t_cmd	*init_cmd(t_mem *mem)
 {
 	t_cmd	*cmd;
@@ -61,10 +53,6 @@ t_cmd	*init_cmd(t_mem *mem)
 	return (cmd);
 }
 
-/**
- ** Initialise un command elem *
- *** @author malatini
-*/
 t_cmd_elem	*init_cmd_elem(t_cmd *cmd, t_mem *mem)
 {
 	t_cmd_elem	*elem;
@@ -89,10 +77,6 @@ t_cmd_elem	*init_cmd_elem(t_cmd *cmd, t_mem *mem)
 	return (elem);
 }
 
-/**
- **Initialisation de notre buffer de lecture *
-*** @author: malatini
-*/
 char	*init_read_buffer(t_cmd *cmd, t_mem *mem)
 {
 	char	*buffer;

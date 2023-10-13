@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   env_values.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:08:43 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 20:57:31 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:45:08 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Via la key, retourne la value en cherchant dans l'env
-* @author: malatini
-**/
 char	*find_value_in_env(char *k, t_mem *mem)
 {
 	t_env_elem	*e;
@@ -37,11 +33,6 @@ char	*find_value_in_env(char *k, t_mem *mem)
 	return (NULL);
 }
 
-/**
-** Va permettre d'ajouter une variable a l'environnement
-** Va copier la cle puis la valeur
-* @author: malatini
-*/
 void	add_env_var(char *str, t_mem *mem, bool display_option, bool append)
 {
 	t_env_var	v;
@@ -63,12 +54,9 @@ void	add_env_var(char *str, t_mem *mem, bool display_option, bool append)
 	}
 	mem->no_display_temp = display_option;
 	sub_add_env_var(str, &v, mem, append);
+	return ;
 }
 
-/**
-** Va ecraser la value d'une variable d'env
-* @author: malatini
-*/
 bool	replace_value_in_env(char *key, char *value, t_mem *mem)
 {
 	t_env_elem	*e;
@@ -89,11 +77,6 @@ bool	replace_value_in_env(char *key, char *value, t_mem *mem)
 	return (FALSE);
 }
 
-/**
-** Ajoute une nouvelle variable a l'environnement
-* * Necessaire de verifier la ket et la value avant
-* @author: malatini
-*/
 void	set_value_in_env(char *key, char *value, t_mem *mem)
 {
 	bool		did_replace;
@@ -111,12 +94,9 @@ void	set_value_in_env(char *key, char *value, t_mem *mem)
 	mem->temp = mem->env_list;
 	if (!did_replace)
 		push_env_var(key, value, mem, append);
+	return ;
 }
 
-/**
-** Recupere le char **envp et le "transforme" en liste chainee
-*** @author: malatini
-*/
 void	init_env_list(t_mem *mem, bool env_set)
 {
 	int	i;
@@ -140,4 +120,5 @@ void	init_env_list(t_mem *mem, bool env_set)
 		set_value_in_env(ft_strdup("SHLVL", mem), ft_strdup("1", mem), mem);
 		add_key_no_value("OLDPWD", mem);
 	}
+	return ;
 }

@@ -6,16 +6,12 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:47:15 by malatini          #+#    #+#             */
-/*   Updated: 2022/03/30 19:00:00 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 15:32:49 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Permet de supprimer proprement l'element unset de la liste
-* @author: malatini
-*/
 int	remove_from_list(t_env_elem *elem, t_mem *mem)
 {
 	t_env_elem	*tmp;
@@ -44,10 +40,6 @@ int	remove_from_list(t_env_elem *elem, t_mem *mem)
 	return (0);
 }
 
-/**
- ** Fonction principale pour gerer le builtin unset
- * @author: malatini
- */
 int	ft_exec_unset(t_cmd_elem *elem, t_mem *mem)
 {
 	int			i;

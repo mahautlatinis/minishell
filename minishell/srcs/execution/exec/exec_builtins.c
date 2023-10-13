@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   exec_builtins.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 16:08:10 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 18:08:41 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:33:10 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Appelle l'execution du builtin
-* @author: malatini
-*/
 int	exec_build(t_cmd_elem *elem, t_mem *mem)
 {
 	push_ret_elem(mem, 0);
@@ -33,6 +29,5 @@ int	exec_build(t_cmd_elem *elem, t_mem *mem)
 		return (ft_exec_env(mem->env_list, mem));
 	else if (elem->args && !ft_strcmp(elem->args[0], "exit"))
 		return (ft_exec_exit(elem, mem));
-	else
-		return (0);
+	return (0);
 }

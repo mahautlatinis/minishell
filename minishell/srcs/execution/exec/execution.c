@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   execution.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 16:04:00 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 18:24:36 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:35:43 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Function qui porte mal son nom. Fork, realise l'execution.
-** Ne fork pas s'il s'agit d'un builtin.
-* @author: malatini
-*/
 int	exec_no_builtin(t_cmd_elem *elem, t_mem *mem)
 {
 	bool		is_piped;
@@ -45,11 +40,6 @@ int	exec_no_builtin(t_cmd_elem *elem, t_mem *mem)
 	return (0);
 }
 
-/**
-** Va generer des messages d'erreurs (ou pas)
-** Et verifier si le PATH est set et que la commande n'est pas un chemin
-* @author: malatini
-*/
 int	loop_for_execution(t_cmd_elem *e, t_mem *m, int *ret)
 {
 	while (e)
@@ -76,10 +66,6 @@ int	loop_for_execution(t_cmd_elem *e, t_mem *m, int *ret)
 	return (*ret);
 }
 
-/**
-** Fonction principale pour l'execution
-* @author: malatini
-*/
 int	ft_execution(t_mem *mem)
 {
 	int			ret;

@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   export_utils1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:12:44 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 11:05:58 by user42           ###   ########.fr       */
+/*   Updated: 2023/10/13 15:31:26 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Permet d'echapper les quotes a l'interieur de la value des vars d'env
-* @author: malatini
-*/
 void	ft_putstr_fd_escape(char *str, int fd)
 {
 	int	i;
@@ -28,12 +24,9 @@ void	ft_putstr_fd_escape(char *str, int fd)
 		write(fd, &str[i], 1);
 		i++;
 	}
+	return ;
 }
 
-/**
-** Affiche la lise chainee de variables d'env comme export
-* @author: malatini
-*/
 void	ft_print_tab_env_export(t_env_list *env)
 {
 	t_env_elem	*elem;
@@ -60,12 +53,9 @@ void	ft_print_tab_env_export(t_env_list *env)
 		}
 		elem = elem->next;
 	}
+	return ;
 }
 
-/**
-** Reproduit le comportement d'export sans argument
-* @author: malatini
-*/
 int	ft_export_no_arg(t_cmd_elem *cmds, t_mem *mem)
 {
 	int			ret;

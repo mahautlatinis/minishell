@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: malatini <malatini@student.42.fr>          +#+  +:+       +#+         #
+#    By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/09 13:57:54 by malatini          #+#    #+#              #
-#    Updated: 2021/09/30 20:54:22 by malatini         ###   ########.fr        #
+#    Updated: 2023/10/13 15:30:17 by mahautlatin      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NC	= \033[0m
-RED	= \033[0;91m
-GREEN =	\033[0;92m
+NC		=	\033[0m
+RED		=	\033[0;91m
+GREEN 	=	\033[0;92m
 
 SRC		=	./srcs/main/main.c \
 			./srcs/parsing/parse_main.c \
@@ -28,7 +28,6 @@ SRC		=	./srcs/main/main.c \
 			./srcs/execution/builtins/env.c \
 			./srcs/execution/builtins/pwd.c \
 			./srcs/execution/builtins/exit.c \
-			./srcs/execution/builtins/exit_utils.c \
 			./srcs/execution/builtins/unset.c \
 			./srcs/execution/builtins/export.c \
 			./srcs/execution/builtins/export_utils.c \
@@ -67,30 +66,30 @@ HEAD		=	./includes/
 OBJS		=	${SRC:.c=.o}
 INCLUDES	=	./includes/minishell.h
 
-CC			= clang
-RM			= rm -rf
-NAME		= minishell
-CFLAGS		= -Wall -Wextra -Werror -g
+CC			=	clang
+RM			=	rm -rf
+NAME		=	minishell
+CFLAGS		=	-Wall -Wextra -Werror -g
 
-READLINE 	= -lreadline
+READLINE 	=	-lreadline
 
-all:		${NAME}
+all:			${NAME}
 
-${NAME}:	$(OBJS)
-			@${CC} $(CFLAGS) -I${HEAD} -lncurses $(OBJS) -o $(NAME) ${READLINE}
-			@echo "${GREEN} Compilation done ${NC}"
+${NAME}:		$(OBJS)
+				@${CC} $(CFLAGS) -I${HEAD} -lncurses $(OBJS) -o $(NAME) ${READLINE}
+				@echo "${GREEN} Compilation done ${NC}"
 
 %.o: %.c
-			@${CC} ${CFLAGS} -I${HEAD} -c $< -o $@
+				@${CC} ${CFLAGS} -I${HEAD} -c $< -o $@
 
 readline:
-			sudo apt-get install libreadline-dev
+				sudo apt-get install libreadline-dev
 clean:
-			$(RM) $(OBJS)
+				$(RM) $(OBJS)
 
-fclean: 	clean
-			$(RM) $(NAME)
+fclean: 		clean
+				$(RM) $(NAME)
 
-re:			clean all
+re:				clean all
 
-.PHONY:		all clean fclean re readline
+.PHONY:			all clean fclean re readline
