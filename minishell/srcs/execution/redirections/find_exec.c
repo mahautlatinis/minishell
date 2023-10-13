@@ -6,40 +6,11 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 17:01:41 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:36:07 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:13:23 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
-
-char	*find_bin(t_mem *mem, char **colons_paths, char *bin, t_cmd_elem *elem)
-{
-	int			fd;
-	int			i;
-	struct stat	s;
-	int			len;
-
-	i = 0;
-	while (colons_paths[i])
-	{
-		len = ft_strlen(colons_paths[i]) + ft_strlen(elem->args[0] + 2);
-		bin = (char *)malloc(sizeof(char) * (len + 1));
-		if (!bin)
-			failure(EXIT_FAILURE, mem);
-		ft_strcpy(bin, colons_paths[i]);
-		ft_strcat(bin, "/");
-		ft_strcat(bin, elem->args[0] + 2);
-		fd = open(bin, O_RDONLY);
-		if (fstat(fd, &s) != -1)
-		{
-			close(fd);
-			return (bin);
-		}
-		free(bin);
-		i++;
-	}
-	return (NULL);
-}
 
 char	*loop_in_paths(t_cmd_elem *elem, char **splitted, t_mem *mem, char *bin)
 {

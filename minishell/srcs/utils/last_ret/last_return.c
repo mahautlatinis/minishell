@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 16:23:51 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:47:09 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:02:41 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,6 @@ bool	is_last_return(char *str)
 		&& !str[i + 2])
 		return (true);
 	return (false);
-}
-
-void	replace_with_last_return(char **str, t_mem *mem)
-{
-	int	last_ret;
-
-	last_ret = return_last_ret(mem);
-	if (is_last_return(*str))
-	{
-		free(*str);
-		*str = NULL;
-		*str = ft_itoa(last_ret, mem);
-	}
-	return ;
 }
 
 void	free_ret_list(t_mem *mem)

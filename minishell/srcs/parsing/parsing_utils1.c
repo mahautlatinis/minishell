@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 19:35:35 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:40:41 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 15:54:02 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,9 +128,7 @@ void	expansion_split(t_mem *m, int *i, t_cmd_elem *elem, enum e_r *t)
 		}
 	}
 	(*i) += ft_strlen(key) + 1;
-	if (value)
-		free(value);
-	if (key)
-		free(key);
+	free(value);
+	free(key);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 19:38:28 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 15:37:48 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:12:13 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,4 @@ t_cmd_elem	*init_cmd_elem(t_cmd *cmd, t_mem *mem)
 	elem->path = NULL;
 	cmd->first = elem;
 	return (elem);
-}
-
-char	*init_read_buffer(t_cmd *cmd, t_mem *mem)
-{
-	char	*buffer;
-
-	(void)cmd;
-	buffer = (char *)malloc(sizeof(char));
-	if (!buffer)
-		failure(-1, mem);
-	buffer[0] = 0;
-	return (buffer);
 }
