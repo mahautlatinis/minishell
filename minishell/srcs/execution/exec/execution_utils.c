@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   execution_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 20:22:34 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 18:27:14 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:35:17 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Verifie si la chaine de chars constitue un builtin
-* @author: malatni
-*/
 int	is_builtin(char *s)
 {
 	if (s)
@@ -31,10 +27,6 @@ int	is_builtin(char *s)
 	return (false);
 }
 
-/**
-** Attend que les forks soient executes. Necessaire pour les pipes !
-* @author: malatini
-*/
 int	wait_exec_cmds(t_cmd_elem *elem, t_mem *mem)
 {
 	int			ret;
@@ -62,10 +54,6 @@ int	wait_exec_cmds(t_cmd_elem *elem, t_mem *mem)
 	return (ret);
 }
 
-/**
-** Indique si la commande precedente est pipee
-* @author: malatini
-*/
 t_cmd_elem	*prev_is_piped(t_cmd_elem *elem, t_cmd *cmd)
 {
 	t_cmd_elem	*tmp;
@@ -78,11 +66,6 @@ t_cmd_elem	*prev_is_piped(t_cmd_elem *elem, t_cmd *cmd)
 	return (NULL);
 }
 
-/**
-* ! Deprecated
-** Va permettre de fermer les pipes (sous function)
-* @author: malatini
-*/
 int	close_prev_pipe(t_cmd_elem *elem, t_cmd *cmd)
 {
 	t_cmd_elem	*tmp;
@@ -98,11 +81,6 @@ int	close_prev_pipe(t_cmd_elem *elem, t_cmd *cmd)
 	return (-1);
 }
 
-/**
-* ! Deprecated
-** Va permettre de fermer les pipes
-* @author: malatini
-*/
 int	close_pipes(t_cmd_elem *elem, int is_piped, t_cmd *cmd)
 {
 	if (prev_is_piped(elem, cmd))

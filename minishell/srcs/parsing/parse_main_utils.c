@@ -3,22 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   parse_main_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 17:55:44 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 11:30:01 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:54:04 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
- ** Fonction de check a la fin du parsing
- * @author: malatini
- */
-int	check_parsing_end_conditions(t_cmd_elem *elem, t_mem *mem, int *ret)
+int	check_parsing_end_conditions(t_mem *mem, int *ret)
 {
-	(void)elem;
 	*ret = 1;
 	if (check_cmd(mem->cmd) == -1)
 	{
@@ -33,10 +28,6 @@ int	check_parsing_end_conditions(t_cmd_elem *elem, t_mem *mem, int *ret)
 	return (*ret);
 }
 
-/**
- ** Check les erreurs de parsing pres d'un pipe
- * @author: malatini
- */
 int	handle_pipe(t_mem *m, t_parse *p)
 {
 	if (p->r_type != R_NONE)
@@ -51,10 +42,6 @@ int	handle_pipe(t_mem *m, t_parse *p)
 	return (0);
 }
 
-/**
- ** Check les erreurs de parsing pres d'une redir
- * @author: malatini
- */
 int	handle_redir(t_mem *m, t_parse *p)
 {
 	if (p->r_type != R_NONE)
@@ -72,32 +59,6 @@ int	handle_redir(t_mem *m, t_parse *p)
 	return (0);
 }
 
-/**
- * ! Depecrated
-** Gere l'expansion dans le parsing (sauf $?)
-* @author: malatini
-*/
-int	handle_expansion(t_mem *m, int *i)
-{
-	char	*key;
-	char	*value;
-
-	key = cpy_key(m, *i);
-	value = find_value_in_env(key, m);
-	if (value)
-		*(m->buffer) = copy_str_in_buf((*m->buffer), value, m);
-	(*i) += ft_strlen(key) + 1;
-	if (value)
-		free(value);
-	if (key)
-		free(key);
-	return (0);
-}
-
-/**
-** Check les erreurs pres des redir / files
-* @author: malatini
-*/
 int	check_file(t_mem *mem)
 {
 	t_cmd_elem	*elem;

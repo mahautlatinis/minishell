@@ -1,21 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   export_utils3.c                                    :+:      :+:    :+:   */
+/*   export_expand.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/24 15:57:48 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 17:58:55 by user42           ###   ########.fr       */
+/*   Created: 2021/09/24 15:14:31 by malatini          #+#    #+#             */
+/*   Updated: 2023/10/13 16:59:56 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Va permettre d'append une value et pas de l'ecraser (si += est trouve)
-* @author: malatini
-*/
+char	*expand_line(char *line, t_mem *m, int i, char *temp)
+{
+	char	*buffer;
+
+	buffer = (char *)malloc(sizeof(char));
+	if (!buffer)
+		failure(-1, m);
+	buffer[0] = 0;
+	while (line[i])
+	{
+		if (line[i] == '$' && line[i + 1] == '?')
+		{
+			i += 2;
+			temp = ft_itoa(return_last_ret(m), m);
+			buffer = copy_str_in_buf(buffer, temp, m);
+			free(temp);
+		}
+		else if (line[i] == '$' && is_key_char_begin(line[i + 1]))
+		{
+			m->line = line;
+			m->buffer = &buffer;
+			quote_expand(m, &i);
+		}
+		else if (line[i++])
+			buffer = copy_in_buffer(buffer, line[i - 1], m);
+	}
+	return (buffer);
+}
+
 int	append_env_var(char *v, char *old_value, t_mem *m, t_env_elem *e)
 {
 	int		total_len;
@@ -23,7 +48,6 @@ int	append_env_var(char *v, char *old_value, t_mem *m, t_env_elem *e)
 	int		len;
 	int		j;
 
-	(void)m;
 	new_value = NULL;
 	j = 0;
 	len = ft_strlen(old_value);
@@ -45,11 +69,6 @@ int	append_env_var(char *v, char *old_value, t_mem *m, t_env_elem *e)
 	return (0);
 }
 
-/**
-** Permet d'ajouter a la liste chainee d env un element avec une cle sans valeur
-** qui sera affichee par export et pas par env
-* @author: malatini
-*/
 int	add_key_no_value(char *str, t_mem *mem)
 {
 	int			ret;
@@ -78,16 +97,41 @@ int	add_key_no_value(char *str, t_mem *mem)
 	return (ret);
 }
 
-/**
-** Initialiser la structure necessaire pour la norme
-* @author: malatini
-*/
-void	set_exp(t_cmd_elem *el, t_mem *m)
+void	set_exp(t_mem *m)
 {
-	(void)el;
 	m->exp->i = 1;
 	m->exp->old_value = NULL;
 	m->exp->append = NULL;
 	m->exp->key = NULL;
 	m->exp->env_elem = NULL;
+	return ;
+}
+
+bool	check_key(char *str, t_mem *mem)
+{
+	int		i;
+
+	i = 0;
+	if (!str[i] || (!ft_isalpha(str[i]) && str[i] != '_'))
+	{
+		d5_err_p_ret("\': not a valid identifier\n", str, mem, 1);
+		return (false);
+	}
+	i++;
+	if (str[i] == '+' || str[i] == '=')
+	{
+		d5_err_p_ret("\': not a valid identifier\n", str, mem, 1);
+		return (false);
+	}
+	while (str[i] && str[i] != '+' && str[i] != '=')
+	{
+		if (!(ft_isalnum(str[i]) || str[i] == '_'))
+		{
+			fprintf(stderr, "%c\n", str[i]);
+			d5_err_p_ret("\': not a valid identifier\n", str, mem, 1);
+			return (false);
+		}
+		i++;
+	}
+	return (true);
 }

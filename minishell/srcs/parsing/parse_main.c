@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 17:25:30 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 11:32:05 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:54:18 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,6 @@ int	init_parse_struct(t_parse *p, t_mem *m)
 	return (0);
 }
 
-/**
-** Sous fonction pour le parsing (norme)
-* @author: malatini
-*/
 int	sub_parse_line(t_mem *m, t_parse *p, char *ito)
 {
 	if (m->line[p->i] == ' ')
@@ -72,10 +68,6 @@ int	sub_parse_line(t_mem *m, t_parse *p, char *ito)
 	return (1);
 }
 
-/**
-** Fonction principale permettant de parser la ligne lue *
-*** @author malatini
-*/
 int	parse_line(t_mem *m)
 {
 	t_parse	p;
@@ -99,7 +91,7 @@ int	parse_line(t_mem *m)
 		}
 	}
 	end_arg(m->buffer, p.e, m, &p.r_type);
-	if (check_parsing_end_conditions(p.e, m, &ret) < 0)
+	if (check_parsing_end_conditions(m, &ret) < 0)
 		return (ret);
 	return (syntax_error(m));
 }

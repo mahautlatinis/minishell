@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 15:58:18 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 17:21:55 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:45:25 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Fonction d erreur qui peut etre appelee quand le message d erreur
-** tiens en une seule chaine de caracteres
-* @author: malatini
-*/
 int	d_err_p_ret(char *error, t_mem *mem, int ret, int fd)
 {
 	ft_putstr_fd(error, fd);

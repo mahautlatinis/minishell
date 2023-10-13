@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   itoa.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 18:55:27 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 12:24:50 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:59:49 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
+
+bool	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (true);
+	return (false);
+}
 
 int	n_size(int n)
 {

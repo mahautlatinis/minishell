@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   set_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 19:34:04 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 18:27:04 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:35:55 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
- ** Verifie si le PATH est set ou pas pour eviter l'execution sinon
- * @author: malatini
- */
 int	check_path_set(t_mem *mem)
 {
 	t_cmd_elem	*elem;
@@ -48,10 +44,12 @@ void	close_forked(int old_fd, int old_fd0)
 	dup2(old_fd0, 0);
 	close(old_fd);
 	close(old_fd0);
+	return ;
 }
 
 void	dup_forked(int *old_fd, int *old_fd0)
 {
 	*old_fd = dup(1);
 	*old_fd0 = dup(0);
+	return ;
 }

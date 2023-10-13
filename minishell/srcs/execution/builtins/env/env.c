@@ -6,17 +6,12 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:47:07 by malatini          #+#    #+#             */
-/*   Updated: 2022/03/30 18:59:37 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 15:30:23 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Permet d'afficher comme env les variables d'environnement
-** contenues dans la liste chainee.
-* @author: malatini
-*/
 void	print_tab_env(t_env_list *env)
 {
 	t_env_elem	*elem;
@@ -33,12 +28,9 @@ void	print_tab_env(t_env_list *env)
 		}
 		elem = elem->next;
 	}
+	return ;
 }
 
-/**
-** Permet de realiser env comme bash sous Linux (Ubuntu)
-*@author: malatini
-*/
 int	ft_exec_env(t_env_list *env, t_mem *mem)
 {
 	if (env)

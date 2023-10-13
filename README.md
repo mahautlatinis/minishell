@@ -2,7 +2,7 @@
 minishell - 2022 (Common Core).
 Rewrite a simple shell using bash as reference.
 
-- Actual Status : validated.
+- Actual Status : validated (Linux bash compliant).
 - Result        : 101% (30/09/2021)
 
 ![minishell](https://github.com/malatinipro/minishell/assets/77189438/819fa3d3-f280-445a-a36b-8f0b134f6893)

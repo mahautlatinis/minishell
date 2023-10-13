@@ -6,16 +6,12 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 16:01:17 by malatini          #+#    #+#             */
-/*   Updated: 2022/03/30 19:00:31 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:50:11 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Sous fonction pour la norme pour realiser l'export
-* @author: malatini
-*/
 void	sub_export(t_cmd_elem *c, t_export *e, t_mem *m)
 {
 	if (!e->old_value)
@@ -40,18 +36,15 @@ void	sub_export(t_cmd_elem *c, t_export *e, t_mem *m)
 		append_env_var(e->value, e->old_value, m, e->env_elem);
 	else if (e->value)
 		set_value_in_env(e->key, e->value, m);
+	return ;
 }
 
-/**
-** Realise l'export de la commande (tous args)
-* @author: malatini
-*/
 int	ft_export(t_cmd_elem *el, t_mem *m)
 {
 	t_export	exp;
 
 	m->exp = &exp;
-	set_exp(el, m);
+	set_exp(m);
 	if (!check_export_key(el, m))
 		return (1);
 	while (el->args[exp.i])
@@ -75,10 +68,6 @@ int	ft_export(t_cmd_elem *el, t_mem *m)
 	return (0);
 }
 
-/**
-** Va boucler sur tous les arguments de la commande pour verifier les keys
-* @author: malatini
-*/
 int	ft_check_export(t_cmd_elem *e, t_mem *m)
 {
 	int			i;
@@ -107,27 +96,18 @@ int	ft_check_export(t_cmd_elem *e, t_mem *m)
 	return (0);
 }
 
-/**
-** Fonction principale pour le builtin export
-* @author: malatini
-*/
 int	ft_exec_export(t_cmd_elem *cmds, t_mem *mem)
 {
 	int		ret;
 
-	(void)mem;
 	ret = 0;
 	if (cmds->args_len <= 1)
-		ft_export_no_arg(cmds, mem);
+		ft_export_no_arg(mem);
 	else
 		ft_check_export(cmds, mem);
 	return (ret);
 }
 
-/**
-** Va remettre le display a true si la variable a une valeur qui a ete rajoutee
-* @author: malatini
-*/
 void	loop_through_env_var(t_mem *mem)
 {
 	t_env_elem	*elem;
@@ -139,4 +119,5 @@ void	loop_through_env_var(t_mem *mem)
 			elem->display = true;
 		elem = elem->next;
 	}
+	return ;
 }

@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 12:19:58 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/25 22:15:04 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:46:09 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Free tous les elements d'une liste chainee de fichiers
-* @author: malatini
-*/
 void	free_file_list(t_file_list *file)
 {
 	t_file_elem	*elem;
@@ -39,13 +35,9 @@ void	free_file_list(t_file_list *file)
 	}
 	if (file)
 		free(file);
+	return ;
 }
 
-/**
-** Je free les elements de la liste a partir du file->first mais je ne
-** ne free pas la tete de la liste.
-* @author: malatini
-*/
 void	free_file_list_no_exit(t_file_list *file)
 {
 	t_file_elem	*elem;
@@ -71,6 +63,7 @@ void	free_file_list_no_exit(t_file_list *file)
 		elem = tmp;
 	}
 	free(file);
+	return ;
 }
 
 void	free_cmd_no_exit(t_cmd *cmd)
@@ -95,12 +88,9 @@ void	free_cmd_no_exit(t_cmd *cmd)
 	if (cmd)
 		free(cmd);
 	cmd = NULL;
+	return ;
 }
 
-/**
-**! Free ma liste chainee de commandes et leurs listes de fichiers associees
-* @author: malatini
-*/
 void	free_cmd(t_cmd *cmd)
 {
 	t_cmd_elem	*elem;
@@ -125,12 +115,9 @@ void	free_cmd(t_cmd *cmd)
 	if (cmd)
 		free(cmd);
 	cmd = NULL;
+	return ;
 }
 
-/**
-**Permet de free n'importe quel tableau de char *.
-* @author: malatini
-*/
 void	free_tab(char **tab)
 {
 	int	i;
@@ -145,4 +132,5 @@ void	free_tab(char **tab)
 	if (tab)
 		free(tab);
 	tab = NULL;
+	return ;
 }

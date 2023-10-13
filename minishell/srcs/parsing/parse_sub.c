@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parse_sub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 19:43:51 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 18:20:06 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:54:44 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
- * * Va lire et retourner tout ce qu'il se trouve entre quotes.
- * * Sans garder les quotes.
- * ** @author: malatini
-*/
 char	*read_quoted(t_mem *m, int *pos, t_parse *p)
 {
 	char	quote;
@@ -45,11 +40,6 @@ char	*read_quoted(t_mem *m, int *pos, t_parse *p)
 	return (*(m->buffer));
 }
 
-/**
-** Ajoute une nouvelle chaine de caractere au tableau des args de la commande *
-** Va reallouer et copier un nouveau tableau a chaque nouvelle string ajoutee *
-*** @author: malatini
-*/
 char	**add_str_to_tab(t_cmd_elem *elem, char *buffer, t_mem *mem)
 {
 	int		len;
@@ -77,22 +67,12 @@ char	**add_str_to_tab(t_cmd_elem *elem, char *buffer, t_mem *mem)
 	return (new);
 }
 
-/**
- * * Permet de reinitialiser le buffer une fois l'arg copie pour *
- * * reprendre la lecture sans garder les anciens chars lu *
- * * L'ancienne ref a ete enregistree dans le char ** de la commande *
- * ** @author malatini
-*/
-void	reinitialize_buffer(char **buffer, t_mem *mem)
+void	reinitialize_buffer(char **buffer)
 {
-	(void)mem;
 	*buffer = NULL;
+	return ;
 }
 
-/***
- ** Ajoute un element a la liste chainee de commande
- *** @author: malatini
- * */
 t_cmd_elem	*push_cmd(t_cmd *cmd, t_mem *mem)
 {
 	t_cmd_elem	*new;
@@ -121,10 +101,6 @@ t_cmd_elem	*push_cmd(t_cmd *cmd, t_mem *mem)
 	return (new);
 }
 
-/**
-** Ajoute une chaine de caractere a ma "commande" (commande ou arguments) *
-*** @author: malatini
-*/
 void	end_arg(char **buffer, t_cmd_elem *elem, t_mem *mem, enum e_r *type)
 {
 	if (!(*buffer))
@@ -137,6 +113,7 @@ void	end_arg(char **buffer, t_cmd_elem *elem, t_mem *mem, enum e_r *type)
 		elem->args_len++;
 	}
 	mem->quotes = false;
-	reinitialize_buffer(buffer, mem);
+	reinitialize_buffer(buffer);
 	*type = R_NONE;
+	return ;
 }

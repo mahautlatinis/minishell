@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   last_return1.c                                     :+:      :+:    :+:   */
+/*   return_codes_list.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 16:34:01 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/03 23:23:39 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:55:14 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
-
-void	print_ret_list(t_mem *mem)
-{
-	t_ret_elem	*elem;
-
-	elem = mem->ret_list->first;
-	while (elem)
-	{
-		elem = elem->next;
-	}
-}
 
 int	return_last_ret(t_mem *mem)
 {
@@ -43,7 +32,6 @@ void	push_ret_elem(t_mem *mem, int ret_value)
 	t_ret_elem	*tmp;
 
 	tmp = NULL;
-	(void)mem;
 	elem = (t_ret_elem *)malloc(sizeof(t_ret_elem));
 	if (!(elem))
 		failure(EXIT_FAILURE, mem);
@@ -58,4 +46,5 @@ void	push_ret_elem(t_mem *mem, int ret_value)
 			tmp = tmp->next;
 		tmp->next = elem;
 	}
+	return ;
 }

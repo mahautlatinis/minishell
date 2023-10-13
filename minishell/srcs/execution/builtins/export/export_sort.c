@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   export_utils.c                                     :+:      :+:    :+:   */
+/*   export_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:11:33 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 20:06:20 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:55:59 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Permet de savoir la longueur de la liste chainee des variables d'env
-* @author: malatini
-*/
+bool	check_export_key(t_cmd_elem *elem, t_mem *mem)
+{
+	int	i;
+
+	i = 1;
+	while (elem->args[i])
+	{
+		if (!check_key(elem->args[i], mem))
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
 int	len_env_list(t_mem *mem)
 {
 	int			len;
@@ -31,10 +41,6 @@ int	len_env_list(t_mem *mem)
 	return (len);
 }
 
-/**
-** Fait une copie de la liste chainee des variables d'env pour la trier
-* @author: malatini
-*/
 t_env_list	*cpy_env_list(t_mem *m)
 {
 	t_env_list	*cpy;
@@ -53,17 +59,13 @@ t_env_list	*cpy_env_list(t_mem *m)
 		{
 			m->no_display_temp = t->display;
 			push_env_var(ft_strdup(t->key, m),
-				ft_strdup(t->value, m), m, false);
+				ft_strdup(t->value, m), m);
 			t = t->next;
 		}
 	}
 	return (cpy);
 }
 
-/**
-** Fait le swap pour le tri de la copie de la liste chainee d'env
-* @author: malatini
-*/
 t_env_list	*bubble_swap_key(t_env_elem *e, t_env_elem *n, t_env_list *cpy)
 {
 	t_env_elem	tmp;
@@ -77,10 +79,6 @@ t_env_list	*bubble_swap_key(t_env_elem *e, t_env_elem *n, t_env_list *cpy)
 	return (cpy);
 }
 
-/**
-** Trie alphabetiquement de maniere croissante
-* @author: malatini
-*/
 t_env_list	*bubble_sort(t_env_list *cpy)
 {
 	t_env_elem	*e;

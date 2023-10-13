@@ -3,21 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 16:06:30 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 18:42:45 by user42           ###   ########.fr       */
+/*   Updated: 2023/10/13 16:53:14 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Va permettre d'ouvrir tous les fichiers
-** sur lesquels on va ecrire/append
-*** TODO: retester en cas d erreur si pas droits sur le fichier
-***       + sous fonction pour la norme.
-*/
 int	redir_output_simple(t_cmd_elem *cmd, t_mem *mem)
 {
 	t_file_elem	*f;
@@ -65,7 +59,7 @@ int	redir_input_simple(t_cmd_elem *elem, t_mem *mem)
 		}
 		else if (f->redir_type == RR_INPUT)
 		{
-			if (ft_heredoc(f, elem, mem))
+			if (ft_heredoc(f, mem))
 				return (1);
 		}
 		f = f->next;

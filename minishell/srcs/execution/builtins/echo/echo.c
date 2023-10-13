@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:46:51 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 15:17:32 by user42           ###   ########.fr       */
+/*   Updated: 2023/10/13 15:29:39 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Permet de boucler sur les arguments de la commande echo
-* @author: malatini
-*/
 int	echo_args(t_cmd_elem *elem, int i)
 {
 	int	flag;
@@ -40,10 +36,6 @@ int	echo_args(t_cmd_elem *elem, int i)
 	return (0);
 }
 
-/**
-** Permet de gerer correctmement l'option -n demandee
-* @author: malatini
-*/
 bool	option(char *a)
 {
 	if (*a != '-')
@@ -60,11 +52,6 @@ bool	option(char *a)
 	return (true);
 }
 
-/**
-** Fonction principale pour gerer le builtin echo
-** en fonction de ses arguments
-* @author: malatini
-*/
 int	ft_exec_echo(t_cmd_elem *elem, t_mem *mem)
 {
 	int	i;

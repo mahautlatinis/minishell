@@ -1,93 +1,91 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   basics.c                                           :+:      :+:    :+:   */
+/*   basics1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/19 12:26:20 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/26 12:22:04 by malatini         ###   ########.fr       */
+/*   Created: 2021/09/24 14:56:06 by malatini          #+#    #+#             */
+/*   Updated: 2023/10/13 15:41:20 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
- * * Retourne la longueur d'une chaine de caractere (classique)
- *** @author malatini
-*/
-int	ft_strlen(char *str)
+void	ft_bzero(void *s, size_t n)
 {
-	int	i;
+	size_t	i;
+	char	*str;
 
 	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-		i++;
-	return (i);
+	str = (char *)s;
+	if (n != 0)
+	{
+		while (i < n)
+		{
+			str[i] = '\0';
+			i++;
+		}
+	}
+	return ;
 }
 
-/**
- ** Compare deux strings et retourne 0 s'il n'y a aucune difference
- *** @author: malatini
-*/
-int	ft_strcmp(char *s1, char *s2)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int	i;
+	void	*str;
 
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return (s1[i] - s2[i]);
-}
-
-/**
-** Allocates memory for a copy of s1, does the copy and returns a point to it.
-*** @author: malatini
-*/
-char	*ft_strdup(const char *s1, t_mem *mem)
-{
-	int		i;
-	char	*cpy;
-
-	i = 0;
-	if (!s1)
+	if (count == 0 || size == 0)
+	{
+		count = 1;
+		size = 1;
+	}
+	str = malloc(count * size);
+	if (str == NULL)
 		return (NULL);
-	while (s1[i])
-		i++;
-	cpy = (char *)malloc(sizeof(char) * (i + 1));
-	if (!(cpy))
-		failure(-1, mem);
-	i = 0;
-	while (s1[i])
-	{
-		cpy[i] = s1[i];
-		i++;
-	}
-	cpy[i] = '\0';
-	return (cpy);
+	ft_bzero(str, count * size);
+	return (str);
 }
 
-/**
- * * Petite fonction pour verifier le char est une redir
- * @author: malatini
-**/
-bool	is_redir(char c)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	if (c == '<' || c == '>')
-		return (true);
-	return (false);
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	int		i;
+	int	i;
 
 	i = 0;
-	if (s)
+	if (!src)
+		return (NULL);
+	while (src[i])
 	{
-		while (s[i])
-			write(fd, &s[i++], 1);
+		dst[i] = src[i];
+		i++;
 	}
+	dst[i] = '\0';
+	return (dst);
+}
+
+char	*ft_strchr(char *str, int c)
+{
+	while ((*str) && (*str) != c)
+		str++;
+	if ((*str) == c)
+		return (str);
+	return (NULL);
+}
+
+char	*ft_strcat(char *dest, char *src)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (dest[i])
+		i++;
+	j = 0;
+	while (src[j])
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:46:40 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 14:38:02 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:45:57 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Fonction pour la norme + gestion des erreurs
-* @author: malatini
-*/
 int	sub_execute_cd_args(t_cmd_elem *elem, t_mem *mem, char *current_path)
 {
 	char	*new_pwd;
@@ -41,10 +37,6 @@ int	sub_execute_cd_args(t_cmd_elem *elem, t_mem *mem, char *current_path)
 	return (0);
 }
 
-/**
-** Gestion du cd quand il y a plusieurs arguments
-* @author: malatini
-**/
 int	execute_cd_args(t_cmd_elem *elem, t_mem *mem, char *current_path)
 {
 	int		ret;
@@ -71,17 +63,11 @@ int	execute_cd_args(t_cmd_elem *elem, t_mem *mem, char *current_path)
 	return (ret);
 }
 
-/**
-** Va permettre d'effectuer un cd sans arg en modifiant les
-** variables d'environnement qui vont bien.
-* @author: malatini
-*/
-int	execute_cd_no_arg(t_cmd_elem *elem, t_mem *mem)
+int	execute_cd_no_arg(t_mem *mem)
 {
 	char	*home;
 	char	*current_wd;
 
-	(void)elem;
 	home = find_value_in_env("HOME", mem);
 	current_wd = getcwd(NULL, 0);
 	chdir(home);
@@ -101,10 +87,6 @@ int	execute_cd_no_arg(t_cmd_elem *elem, t_mem *mem)
 	return (0);
 }
 
-/**
-** Fonction principale pour gerer le builtin cd
-* @author: malatini
-*/
 int	ft_exec_cd(t_cmd_elem *elem, t_mem *mem)
 {
 	int		i;
@@ -113,7 +95,7 @@ int	ft_exec_cd(t_cmd_elem *elem, t_mem *mem)
 	i = 0;
 	current_path = getcwd(NULL, 0);
 	if (elem->args_len == 1)
-		i = execute_cd_no_arg(elem, mem);
+		i = execute_cd_no_arg(mem);
 	else
 		i = execute_cd_args(elem, mem, current_path);
 	free(current_path);

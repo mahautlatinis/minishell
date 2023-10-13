@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   free1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 14:34:18 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/25 16:19:55 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:46:29 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Permet de free la liste créee pour stocker les variables d'env
-*** @author: malatini
-*/
 void	free_env_list(t_env_list *list)
 {
 	t_env_elem	*elem;
@@ -36,12 +32,9 @@ void	free_env_list(t_env_list *list)
 	}
 	free(list);
 	list = NULL;
+	return ;
 }
 
-/**
-** Free les elements non necessaires pour la lecture d'une nouvelle ligne
-* @author: malatini
-*/
 void	free_mem_no_exit(t_mem *mem)
 {
 	if (mem->cmd)
@@ -51,12 +44,9 @@ void	free_mem_no_exit(t_mem *mem)
 	}
 	if (*(mem->buffer))
 		(*mem->buffer) = NULL;
+	return ;
 }
 
-/**
- * *Fonction de free pour la structure principale
- *** @author: malatini
-*/
 void	free_mem(t_mem *mem)
 {
 	if (mem->line)
@@ -82,4 +72,5 @@ void	free_mem(t_mem *mem)
 		free_ret_list(mem);
 	if (mem)
 		free(mem);
+	return ;
 }

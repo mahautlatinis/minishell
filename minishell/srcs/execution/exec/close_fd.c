@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   close_fd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 12:28:10 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 18:21:14 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:32:58 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
- ** Va boucler sur tous les pipes des commandes pour les close
- * @author: malatini
- */
 int	ft_close_pipes(t_mem *mem)
 {
 	int			ret;
@@ -35,10 +31,6 @@ int	ft_close_pipes(t_mem *mem)
 	return (ret);
 }
 
-/**
- ** Va boucler sur tous les fds des commandes pour les close
- * @author: malatini
- */
 int	close_all_fds(t_mem *mem)
 {
 	t_cmd_elem	*cmd_elem;

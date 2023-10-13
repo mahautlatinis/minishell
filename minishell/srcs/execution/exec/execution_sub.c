@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   execution_sub.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malatini <malatini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 20:26:32 by malatini          #+#    #+#             */
-/*   Updated: 2021/09/30 18:27:16 by malatini         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:33:55 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-/**
-** Fonction principale qui realise l'execve
-* @author: malatini
-*/
 int	exec_process(t_cmd_elem *elem, t_mem *mem)
 {
 	int		ret;
@@ -39,11 +35,6 @@ int	exec_process(t_cmd_elem *elem, t_mem *mem)
 	return (ret);
 }
 
-/**
-** Bash va ouvrir les fichiers mais n'ecrire que dans le dernier
-** donc besoin de recuperer le dernier fd
-* @author: malatini
-*/
 int	last_file_fd(t_cmd_elem *elem)
 {
 	t_file_elem	*tmp;
@@ -58,10 +49,6 @@ int	last_file_fd(t_cmd_elem *elem)
 	return (tmp->fd);
 }
 
-/**
-** Sous fonction necessaire pour faire les dups qui vont bien (norme)
-* @author: malatini
-*/
 void	setup_file_dup(t_cmd_elem *elem)
 {
 	int	fd_to_pipe;
@@ -83,14 +70,9 @@ void	setup_file_dup(t_cmd_elem *elem)
 		if (!elem->is_builtin && fd_to_pipe >= 0)
 			dup2(fd_to_pipe, 0);
 	}
+	return ;
 }
 
-/**
-** Va appeler les fonctions necessaire pour l'execution en fonction
-** de la commande + va faire les dup2s necessaires pour la communication
-** des pipes.
-* @author: malatini
-*/
 void	child_function(t_cmd_elem *elem, t_mem *mem, t_cmd_elem *prev_piped)
 {
 	int	old_fd;
@@ -116,12 +98,9 @@ void	child_function(t_cmd_elem *elem, t_mem *mem, t_cmd_elem *prev_piped)
 	}
 	if (!elem->is_forked)
 		close_forked(old_fd, old_fd0);
+	return ;
 }
 
-/**
-** Va piper ce qui doit etre pipe + noter si on est dans le cas d'un builtin
-* @author: malatini
-*/
 bool	setup_builtin_pipe(t_cmd_elem *elem, t_mem *mem, t_cmd_elem **prevPiped)
 {
 	if (!elem->args || is_builtin(elem->args[0]))
