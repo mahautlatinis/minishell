@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 12:21:58 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 16:13:28 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:21:24 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -311,6 +311,9 @@ void			push_file_elem(t_cmd_elem *e, char **buff, bool q, enum e_r t);
 void			push_ret_elem(t_mem *mem, int ret_value);
 void			quote_expand(t_mem *m, int *pos);
 void			s_init(t_mem *m);
+void			s_int(int code);
+void			s_quit(int code);
+void			s_quit_hd(int signal);
 void			set_exp(t_cmd_elem *el, t_mem *m);
 void			set_value_in_env(char *key, char *value, t_mem *mem);
 void			setup_file_dup(t_cmd_elem *elem);
