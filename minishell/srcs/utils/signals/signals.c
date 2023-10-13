@@ -6,7 +6,7 @@
 /*   By: mahautlatinis <mahautlatinis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 21:40:50 by malatini          #+#    #+#             */
-/*   Updated: 2023/10/13 16:21:31 by mahautlatin      ###   ########.fr       */
+/*   Updated: 2023/10/13 16:26:44 by mahautlatin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,3 @@ void	s_quit_hd(int signal)
 	ft_putstr_fd("\b\b  \b\b", 1);
 	return ;
 }
-
