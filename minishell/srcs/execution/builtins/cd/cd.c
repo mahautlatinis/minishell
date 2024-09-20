@@ -19,7 +19,7 @@ int	sub_execute_cd_args(t_cmd_elem *elem, t_mem *mem, char *current_path)
 	new_pwd = NULL;
 	if (chdir(elem->args[1]) == -1)
 	{
-		ft_putstr_fd("bash: cd: ", 2);
+		ft_putstr_fd("minishell: cd: ", 2);
 		ft_putstr_fd(elem->args[1], 2);
 		ft_putstr_fd(": No such file or directory\n", 2);
 		push_ret_elem(mem, 127);
@@ -45,7 +45,7 @@ int	execute_cd_args(t_cmd_elem *elem, t_mem *mem, char *current_path)
 	ret = 0;
 	new_pwd = NULL;
 	if (elem->args_len > 2)
-		return (d_err_p_ret("bash: cd: too many arguments\n", mem, 1, 2));
+		return (d_err_p_ret("minishell: cd: too many arguments\n", mem, 1, 2));
 	if (elem->args[1][0] != '-')
 		return (sub_execute_cd_args(elem, mem, current_path));
 	else

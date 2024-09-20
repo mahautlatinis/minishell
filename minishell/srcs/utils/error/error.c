@@ -31,7 +31,7 @@ int	d2_err_p_ret(char *error, char *arg, t_mem *mem, int ret)
 
 int	d3_err(char *error, char *arg, t_mem *mem, int ret)
 {
-	ft_putstr_fd("bash: ", 2);
+	ft_putstr_fd("minishell: ", 2);
 	ft_putstr_fd(arg, 2);
 	ft_putstr_fd(error, 2);
 	push_ret_elem(mem, ret);
@@ -40,7 +40,7 @@ int	d3_err(char *error, char *arg, t_mem *mem, int ret)
 
 int	d4_err_p_ret(char *error, char *arg, t_mem *mem, int ret)
 {
-	ft_putstr_fd("bash: exit: ", 2);
+	ft_putstr_fd("minishell: exit: ", 2);
 	ft_putstr_fd(arg, 2);
 	ft_putstr_fd(error, 2);
 	push_ret_elem(mem, ret);
@@ -49,7 +49,7 @@ int	d4_err_p_ret(char *error, char *arg, t_mem *mem, int ret)
 
 int	d5_err_p_ret(char *error, char *arg, t_mem *mem, int ret)
 {
-	ft_putstr_fd("bash: export: `", 2);
+	ft_putstr_fd("minishell: export: `", 2);
 	ft_putstr_fd(arg, 2);
 	ft_putstr_fd(error, 2);
 	push_ret_elem(mem, ret);

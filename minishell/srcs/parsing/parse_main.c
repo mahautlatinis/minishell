@@ -85,10 +85,7 @@ int	parse_line(t_mem *m)
 		else if (m->line[(p.i)++])
 			(*m->buffer) = copy_in_buffer((*m->buffer), m->line[p.i - 1], m);
 		if (p.error)
-		{
-			d_err_p_ret("inishell: parse error\n", m, 2, 2);
 			return (-1);
-		}
 	}
 	end_arg(m->buffer, p.e, m, &p.r_type);
 	if (check_parsing_end_conditions(m, &ret) < 0)

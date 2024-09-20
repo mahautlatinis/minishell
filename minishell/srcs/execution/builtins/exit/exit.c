@@ -120,6 +120,6 @@ int	ft_exec_exit(t_cmd_elem *e, t_mem *m)
 		}
 	}
 	if (e && e->args_len > 2 && !enter)
-		return (d_err_p_ret("bash: exit: too many arguments\n", m, 1, 2));
+		return (d_err_p_ret("minishell: exit: too many arguments\n", m, 1, 2));
 	return (exit_clean(e, ret, m));
 }

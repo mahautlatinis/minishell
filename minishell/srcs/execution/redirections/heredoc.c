@@ -39,7 +39,7 @@ void	loop_heredoc(char *line, t_mem *mem, t_file_elem *f, int *heredoc_pipe)
 		line = readline("> ");
 		if (!line)
 		{
-			ft_putstr_fd("bash: avertissement : « here-document »\n", 2);
+			ft_putstr_fd("minishell: avertissement : « here-document »\n", 2);
 			break ;
 		}
 		if (!ft_strcmp(line, f->path))

@@ -17,7 +17,6 @@ int	check_parsing_end_conditions(t_mem *mem, int *ret)
 	*ret = 1;
 	if (check_cmd(mem->cmd) == -1)
 	{
-		ft_putstr_fd("Parse error.\n", 2);
 		push_ret_elem(mem, 2);
 		*ret = -1;
 	}
@@ -70,13 +69,12 @@ int	check_file(t_mem *mem)
 		file_elem = elem->file->first;
 		if (elem->redir_type != R_NONE && !file_elem)
 		{
-			ft_putstr_fd("minishell: parse error\n", 2);
 			push_ret_elem(mem, 1);
 			return (-1);
 		}
 		else if (elem->redir_type != R_NONE && !ft_strcmp(file_elem->path, ""))
 		{
-			ft_putstr_fd("bash: No such file or directory\n", 2);
+			ft_putstr_fd("minishell: No such file or directory\n", 2);
 			push_ret_elem(mem, 127);
 			return (-2);
 		}

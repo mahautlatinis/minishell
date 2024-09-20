@@ -50,7 +50,7 @@ int	redir_input_simple(t_cmd_elem *elem, t_mem *mem)
 			f->fd = open(f->path, O_RDONLY);
 			if (f->fd < 0)
 			{
-				ft_putstr_fd("bash: ", 2);
+				ft_putstr_fd("minishell: ", 2);
 				ft_putstr_fd(f->path, 2);
 				ft_putstr_fd(": No such file or directory\n", 2);
 				push_ret_elem(mem, 127);

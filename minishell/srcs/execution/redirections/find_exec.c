@@ -75,7 +75,7 @@ char	*find_exec(t_cmd_elem *elem, t_mem *mem)
 		fd = open(s, O_RDONLY, 0644);
 		if (fd < 0)
 		{
-			ft_putstr_fd("bash: ", 2);
+			ft_putstr_fd("minishell: ", 2);
 			ft_putstr_fd(s, 2);
 			ft_putstr_fd(": No such file or directory\n", 2);
 			push_ret_elem(mem, 127);
